@@ -6,7 +6,7 @@ import seaborn as sns
 
 # Step 2: Load the dataset
 # Assuming the dataset is in a CSV file named "country_data.csv"
-df = pd.read_csv('country_data.csv')
+df = data.copy()
 
 # Step 3: Clean the dataset (e.g., check for missing values, data types)
 # Checking for missing values
@@ -66,7 +66,11 @@ sns.barplot(x='aid_score_weighted', y='country', data=df_sorted_weighted.head(10
 plt.title("Top 10 Countries in Need of International Aid (Weighted)")
 plt.xlabel("Weighted Aid Score")
 plt.ylabel("Country")
-plt.legend(False)
+
+
+
+
 plt.show()
+
 
 
