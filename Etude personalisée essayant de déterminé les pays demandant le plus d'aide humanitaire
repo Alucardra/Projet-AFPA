@@ -6,7 +6,8 @@ import seaborn as sns
 
 # Step 2: Load the dataset
 # Assuming the dataset is in a CSV file named "country_data.csv"
-df = data.copy()
+df = pd.read_csv('country_data.csv')
+
 
 # Step 3: Clean the dataset (e.g., check for missing values, data types)
 # Checking for missing values
