@@ -1,9 +1,44 @@
 Repondre a la problematique :
 
-1- Quels pays sont dans le besoin urgent d'aide humanitaire
+A- Quels pays sont dans le besoin urgent d'aide humanitaire
 
-2- Population growth prediction sur le futur
+Voici quelques étapes et critères que vous pouvez utiliser pour analyser les données et identifier les pays en difficulté :
 
-3-GDP growth prediction
+1. Mortalité infantile (child_mort)
+Critère : Les pays avec des taux de mortalité infantile élevés (nombre élevé de décès d'enfants de moins de 5 ans pour 1000 naissances vivantes) sont souvent des pays avec un accès limité aux soins de santé de qualité, à la nutrition et à l'eau potable.
+Action : Identifier les pays avec des valeurs élevées dans cette colonne. Un taux élevé de mortalité infantile est souvent le résultat de conditions sanitaires et sociales très précaires.
 
-4-Heatmap mondial (Pop, GDP...)
+2. Santé (health)
+Critère : Un faible pourcentage de dépenses de santé par rapport au PIB indique une couverture de santé insuffisante. Les pays qui allouent peu de ressources à la santé ont souvent des systèmes de soins fragiles, ce qui affecte gravement les populations.
+Action : Identifier les pays avec des valeurs faibles dans cette colonne. Ceux-ci peuvent avoir des infrastructures de santé déficientes et ne pas être capables de répondre aux besoins de base en matière de soins médicaux.
+
+3. Espérance de vie (life_expec)
+Critère : Une espérance de vie faible est souvent un indicateur de mauvaises conditions de vie, notamment une mauvaise qualité des soins de santé, des conditions de vie difficiles et une alimentation insuffisante.
+Action : Identifier les pays avec une espérance de vie inférieure à la moyenne mondiale. Cela peut indiquer une situation humanitaire urgente.
+
+4. Fertilité (total_fer)
+Critère : Un taux de fertilité élevé (beaucoup d'enfants par femme) peut être lié à des conditions économiques difficiles, un faible accès à la planification familiale, des inégalités de genre et une pression sur les ressources naturelles.
+Action : Les pays avec des valeurs élevées dans cette colonne peuvent aussi avoir besoin d'aide humanitaire, surtout si cela s'accompagne d'un manque de services de santé reproductive.
+
+5. Revenu (Income)
+Critère : Un revenu par personne très bas indique un niveau de vie faible et peut être lié à une pauvreté extrême, à une mauvaise répartition des ressources et à des inégalités économiques.
+Action : Identifier les pays avec un revenu faible par personne. Ces pays peuvent avoir des difficultés à fournir des services de base à leur population.
+
+6. Inflation (Inflation)
+Critère : Un taux d'inflation élevé peut être le signe d'une instabilité économique, de la dépréciation de la monnaie et de la difficulté des citoyens à accéder à des biens essentiels.
+Action : Rechercher les pays avec une inflation élevée qui pourrait mettre en péril l'accès aux biens essentiels comme la nourriture, les médicaments et les services de base.
+
+7. Commerce extérieur (imports et exports)
+Critère : Un faible pourcentage d'exportations et d'importations par rapport au PIB peut indiquer une faible intégration dans l'économie mondiale, un manque de ressources ou des difficultés à accéder aux produits et services nécessaires.
+Action : Identifier les pays avec des exportations et importations faibles en pourcentage du PIB. Cela peut également refléter une économie fragile.
+
+8. PIB par habitant (gdpp)
+Critère : Un PIB par habitant faible indique une économie peu développée et un faible niveau de vie. Les pays avec un faible PIB par habitant sont souvent confrontés à des niveaux élevés de pauvreté et de précarité.
+Action : Rechercher les pays avec un PIB par habitant faible. Ces pays peuvent avoir besoin de soutien humanitaire pour améliorer les conditions de vie de leurs citoyens.
+
+
+B- Population growth prediction sur le futur
+
+C-GDP growth prediction
+
+D-Heatmap mondial (Pop, GDP...)
