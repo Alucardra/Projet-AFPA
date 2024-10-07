@@ -1,0 +1,72 @@
+# Step 1: Import necessary libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Step 2: Load the dataset
+# Assuming the dataset is in a CSV file named "country_data.csv"
+df = pd.read_csv('country_data.csv')
+
+# Step 3: Clean the dataset (e.g., check for missing values, data types)
+# Checking for missing values
+print(df.isnull().sum())
+
+# If there are any missing values, we can handle them, for example, by dropping or filling them
+# df = df.dropna()  # Example: Dropping missing values
+# or 
+# df = df.fillna(0)  # Filling missing values with 0
+
+# Step 4: Define the criteria for identifying countries in need of international aid
+
+# Example thresholds (adjust as per the dataset's specific scale):
+# High child mortality (higher is worse)
+df['high_child_mortality'] = df['child_mort'].apply(lambda x: 1 if x > 50 else 0)
+
+# Low health spending (lower is worse)
+df['low_health_spending'] = df['health'].apply(lambda x: 1 if x < 3 else 0)
+
+# Low life expectancy (lower is worse)
+df['low_life_expec'] = df['life_expec'].apply(lambda x: 1 if x < 60 else 0)
+
+# Low income (low GDP per capita is considered low income)
+df['low_income'] = df['gdpp'].apply(lambda x: 1 if x < 5000 else 0)
+
+# High fertility (higher is worse)
+df['high_fertility'] = df['total_fer'].apply(lambda x: 1 if x > 5 else 0)
+
+# Step 5: Adjust the scoring system with weighted factors
+# We can assign different weights to each criterion as we discussed before
+weights = {
+    'high_child_mortality': 2,  # Higher weight for child mortality
+    'low_health_spending': 2,   # Higher weight for low health spending
+    'low_life_expec': 1,        # Lower weight for life expectancy
+    'low_income': 1,            # Lower weight for low income
+    'high_fertility': 1         # Lower weight for fertility rate
+}
+
+# Recalculate the aid score with weights
+df['aid_score_weighted'] = (
+    df['high_child_mortality'] * weights['high_child_mortality'] +
+    df['low_health_spending'] * weights['low_health_spending'] +
+    df['low_life_expec'] * weights['low_life_expec'] +
+    df['low_income'] * weights['low_income'] +
+    df['high_fertility'] * weights['high_fertility']
+)
+
+# Step 6: Sort countries based on the new weighted aid score
+df_sorted_weighted = df.sort_values(by='aid_score_weighted', ascending=False)
+
+# Step 7: Display the sorted data with the weighted score
+print(df_sorted_weighted[['country', 'aid_score_weighted', 'child_mort', 'health', 'life_expec', 'gdpp', 'total_fer']].head(10))
+
+# Step 8: Visualization of the weighted aid score
+plt.figure(figsize=(10, 6))
+sns.barplot(x='aid_score_weighted', y='country', data=df_sorted_weighted.head(10), palette='coolwarm', hue='country')
+plt.title("Top 10 Countries in Need of International Aid (Weighted)")
+plt.xlabel("Weighted Aid Score")
+plt.ylabel("Country")
+plt.legend(False)
+plt.show()
+
+
